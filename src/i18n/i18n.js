@@ -4,8 +4,13 @@ import { initReactI18next } from 'react-i18next';
 import CustomBackend from './CustomBackend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const token = '333e9e92379930f532d7a2a7a07f8748';
-const id = '396159';
+require('dotenv').config()
+// const token = '333e9e92379930f532d7a2a7a07f8748';
+// const id = '396159';
+const token = process.env.REACT_APP_TOKEN;
+const id = process.env.REACT_APP_ID;
+
+
 
 i18n
   .use(CustomBackend)

@@ -1,18 +1,19 @@
 import React from 'react';
 import {Navigation, Wrapper} from 'components'
 import {ThemeProvider} from 'styled-components'
-import theme from './theme'
+import theme from './utils/theme'
 import {GlobalStyles} from './index.css'
-import {
-  BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Home from './pages/Home'
+import News from './pages/News'
 import {useTranslation} from 'react-i18next'
 
-function App({ budget, fetchBudget, fetchBudgetedCategories }) {
-  const { t, i18n } = useTranslation();
-  // const arr = []
+function App() {
+
+  const { i18n } = useTranslation();
     const arr = [
-      {content: t('HomePage'), to: '/'},
-      {content: t('News'), to: '/news'},
+      {content: 'Home', to: '/'},
+      {content: 'News', to: '/news'},
     ]
     return (
       
@@ -23,8 +24,8 @@ function App({ budget, fetchBudget, fetchBudgetedCategories }) {
               items={arr}
               RightElement={(
                 <div>
-                <button>pl</button>
-                <button>en</button>
+                <button variant="regular" onClick={() => i18n.changeLanguage('pl')}>pl</button>
+                <button variant="regular" onClick={() => i18n.changeLanguage('en')}>en</button>
                 </div>
               )} 
             />
@@ -32,10 +33,10 @@ function App({ budget, fetchBudget, fetchBudgetedCategories }) {
             <Wrapper>
               <Switch>
                 <Route exact={true} path="/">
-                  Homepage
+                  <Home />
                 </Route>
                 <Route path="/news">
-                  News
+                  <News />
                 </Route>
               </Switch>              
             </Wrapper>
@@ -43,7 +44,6 @@ function App({ budget, fetchBudget, fetchBudgetedCategories }) {
           </Router> 
 
       </ThemeProvider>
- 
   );
 }
 

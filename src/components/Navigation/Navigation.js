@@ -1,6 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
-import {Wrapper} from 'components'
 import {TestDiv, Container, List} from './Navigation.css'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';

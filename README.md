@@ -1,1 +1,0 @@
-## App two languages pol-end using POEditor
